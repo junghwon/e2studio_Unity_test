@@ -25,6 +25,22 @@ TEST_TEAR_DOWN(TestRangeCookModel)
 }
 
 // テストケース
+TEST(TestRangeCookModel, stateStart)
+{
+	mocRangeCookModel.state = state_standby;
+	mocRangeCookModel.cookTimer = 0;
+
+	cookStart (&mocRangeCookModel, watt_500, 10);
+
+	TEST_ASSERT_EQUAL (state_cook, mocRangeCookModel.state);
+	TEST_ASSERT_EQUAL (10, mocRangeCookModel.cookTimer);
+
+	TEST_ASSERT_NOT_EQUAL (state_standby, mocRangeCookModel.state);
+	TEST_ASSERT_NOT_EQUAL (state_end, mocRangeCookModel.state);
+	TEST_ASSERT_NOT_EQUAL (0, mocRangeCookModel.cookTimer);
+
+}
+
 TEST(TestRangeCookModel, stateCook)
 {
 	mocRangeCookModel.cookTimer = 1;
@@ -40,4 +56,5 @@ TEST(TestRangeCookModel, stateCook)
 TEST_GROUP_RUNNER(TestRangeCookModel)
 {
     RUN_TEST_CASE(TestRangeCookModel, stateCook);
+    RUN_TEST_CASE(TestRangeCookModel, stateStart);
 }
