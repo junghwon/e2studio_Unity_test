@@ -22,7 +22,7 @@
 * Version      : 1.1.4
 * Device(s)    : R5F52318AxFM
 * Description  : SMC platform header file.
-* Creation Date: 2021-05-12
+* Creation Date: 2021-05-13
 ***********************************************************************************************************************/
 
 #ifndef SMC_ENTRY_H

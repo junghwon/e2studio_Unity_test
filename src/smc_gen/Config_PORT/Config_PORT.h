@@ -22,7 +22,7 @@
 * Version      : 1.9.0
 * Device(s)    : R5F52318AxFM
 * Description  : This file implements device driver for Config_PORT.
-* Creation Date: 2021-05-12
+* Creation Date: 2021-05-13
 ***********************************************************************************************************************/
 
 #ifndef CFG_Config_PORT_H
