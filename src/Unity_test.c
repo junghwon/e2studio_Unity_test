@@ -14,13 +14,16 @@ void main(void);
 
 void main(void)
 {
-#if 1
+#ifdef UNIT_TEST
     // コマンドラインオプション "-v" を指定。
     // -v   詳細(verbose)モード。各テストの実行前にテスト名を出力する。
     int argc = 2;
     const char *argv[] = {"program name", "-v"};
     extern void RunAllTests(void);
     UnityMain(argc, argv, RunAllTests);
-#endif
+#endif // UNIT_TEST
+
+
+
     while(1);
 }

@@ -16,17 +16,17 @@ struct _rangeCookModel {
 };
 
 #ifdef UNIT_TEST
-#define STATIC
-state_t cookManager (
-    rangeCookModel_t *this,
-    watt_t watt,
-    int timer,
-    funcStop callback,
-    rangeController_t *rangeController);
-void cookStart (rangeCookModel_t *this, watt_t watt, int timer);
-int getCookTimer (rangeCookModel_t *this);
+	#define STATIC
+	state_t cookManager (
+		rangeCookModel_t *this,
+		watt_t watt,
+		int timer,
+		funcStop callback,
+		rangeController_t *rangeController);
+	void cookStart (rangeCookModel_t *this, watt_t watt, int timer);
+	int getCookTimer (rangeCookModel_t *this);
 #else
-#define STATIC static
+	#define STATIC static
 #endif // UNIT_TEST
 
 void rangeCookModel_Constructor (rangeCookModel_t *this);

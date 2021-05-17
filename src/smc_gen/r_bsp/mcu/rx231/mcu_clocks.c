@@ -430,7 +430,7 @@ static void clock_source_select (void)
             /* The delay period needed is to make sure that the HOCO has stabilized. */
             R_BSP_NOP();
         }
-#endif //
+#endif // USE_SIMULATOR
     }
 #endif /* BSP_CFG_CLOCK_SOURCE == 1 */
 
