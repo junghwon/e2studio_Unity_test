@@ -10,6 +10,21 @@
 #include "r_smc_entry.h"
 #include "unity/unity_fixture.h"
 
+typedef union {
+	uint8_t byte;
+	struct {
+		uint8_t bit0 : 1;
+		uint8_t bit1 : 1;
+		uint8_t bit2 : 1;
+		uint8_t bit3 : 1;
+		uint8_t bit4 : 1;
+		uint8_t bit5 : 1;
+		uint8_t bit6 : 1;
+		uint8_t bit7 : 1;
+	}bit;
+} port_t;
+
+
 void main(void);
 
 void main(void)
@@ -25,5 +40,18 @@ void main(void)
 
 
 
-    while(1);
+
+    R_Config_PORT_Create();
+
+    PORTB.PODR.BYTE = 0;
+
+    port_t portData;
+    portData.bit.bit5 = 1;
+
+    volatile uint8_t *port;
+    port = &(PORTB.PODR.BYTE);
+
+    while(1) {
+    	*port = portData.byte;
+    }
 }
